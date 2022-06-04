@@ -32,7 +32,8 @@
     "react-h5-audio-player": "^3.8.4",
     "react-helmet": "^6.1.0",
     "react-spring": "^9.4.5",
-    "sass": "^1.52.1"
+    "sass": "^1.52.1",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/moment-duration-format": "^2.2.3",

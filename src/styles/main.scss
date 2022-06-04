@@ -1,8 +1,7 @@
 @import "./typography.scss";
 @import "./animations.scss";
-@import "./bokeh.scss";
 
-$orange-color: #FD5035;
+$orange-color: #fd5035;
 
 body {
 	background-color: black;
@@ -232,12 +231,12 @@ nav {
 	a {
 		color: white;
 		text-decoration: none;
-		transition: all .2s;
+		transition: all 0.2s;
 		animation-name: glow;
 		animation-duration: 1s;
 		animation-iteration-count: infinite;
 		animation-direction: alternate;
-			color: $orange-color;
+		color: $orange-color;
 		&:hover {
 			color: darken($orange-color, 5%);
 		}
