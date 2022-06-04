@@ -2,6 +2,7 @@ import * as React from "react";
 import { useSpring, animated } from "react-spring";
 import useSound from "use-sound";
 import { Link } from "gatsby";
+import Transition from "../components/Transition";
 
 import "../styles/main.scss";
 import intro from "../assets/intro.mp3";
@@ -26,8 +27,8 @@ function IndexPage() {
     config: { frequency: 10, mass: 20, friction: 20 },
     delay: 100,
   });
-  return (
-    <div className="background" id="main__container">
+  const content = () => (
+    <>
       <animated.main style={props}>
         You’re formally invited to a private one time streaming session of
         ThankGod4Cody’s upcoming project
@@ -36,8 +37,9 @@ function IndexPage() {
       <animated.nav style={navProps}>
         <Link to="/KMITL">Enter The Light</Link>
       </animated.nav>
-    </div>
+    </>
   );
+  return <Transition>{content()}</Transition>;
 }
 
 export default IndexPage;

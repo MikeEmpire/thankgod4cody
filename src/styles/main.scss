@@ -2,6 +2,8 @@
 @import "./animations.scss";
 
 $orange-color: #fd5035;
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt");
 
 body {
 	background-color: black;
@@ -30,7 +32,6 @@ main {
 	width: 40%;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt");
 
 .App {
 	font-family: sans-serif;
@@ -48,6 +49,7 @@ main {
 
 	.song {
 		user-select: none;
+		font-family: 'Manrope', sans-serif;
 		margin: 0 20px;
 		.song__title {
 			text-align: left;
@@ -220,10 +222,12 @@ article.song {
 
 header.song__artist {
 	font-size: 28px;
+	font-family: 'Manrope', sans-serif;
 }
 
 .song__title {
 	font-size: 24px;
+	font-family: 'Manrope', sans-serif;
 }
 
 nav {
