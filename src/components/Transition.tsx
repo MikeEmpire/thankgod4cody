@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface TransitionProps {
   children: React.ReactNode;
@@ -13,17 +13,19 @@ const animationConfiguration = {
 
 const Transition = ({ children }: TransitionProps) => {
   return (
-    <motion.div
-      variants={animationConfiguration}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 3 }}
-      className="background"
-      id="main__container"
-    >
-      {children}
-    </motion.div>
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        variants={animationConfiguration}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 2 }}
+        className="background"
+        id="main__container"
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

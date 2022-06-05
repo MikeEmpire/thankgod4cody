@@ -1,10 +1,11 @@
 import { useSpring, animated } from "react-spring";
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 import "../styles/main.scss";
 import "../styles/bokeh.scss";
+import "../styles/introtransition.scss";
 
-import audioFile from "../assets/KMITL-Stream.mp4";
 import Tracklist from "../components/Tracklist";
 import Transition from "../components/Transition";
 import Play from "../components/Play";
@@ -13,36 +14,49 @@ import Pause from "../components/Pause";
 import useAudioPlayer from "../components/useAudioPlayer";
 
 // markup
-function KMITL() {
+function KMITL({ location }: any) {
+  const isFirstMount = !location.action;
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer();
+  const props = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { frequency: 10, mass: 40, friction: 200 },
+    delay: 3000,
+  });
 
   return (
     <Transition>
-      <div>
+      <div className="container">
+        <h1 className="title">
+          <span>Keep Me In</span>
+          <span>The Light</span>
+        </h1>
+      </div>
+      <animated.div style={props}> 
         <div style={{ height: "100vh" }} className="background">
           {playing && (
             <>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
+              <span className="bokeh"></span>
             </>
           )}
           <Tracklist trackProgress={curTime} />
@@ -68,7 +82,7 @@ function KMITL() {
             </div>
           </main>
         </div>
-      </div>
+      </animated.div>
     </Transition>
   );
 }

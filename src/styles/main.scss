@@ -32,7 +32,6 @@ main {
 	width: 40%;
 }
 
-
 .App {
 	font-family: sans-serif;
 	text-align: center;
@@ -49,7 +48,7 @@ main {
 
 	.song {
 		user-select: none;
-		font-family: 'Manrope', sans-serif;
+		font-family: "Manrope", sans-serif;
 		margin: 0 20px;
 		.song__title {
 			text-align: left;
@@ -222,12 +221,12 @@ article.song {
 
 header.song__artist {
 	font-size: 28px;
-	font-family: 'Manrope', sans-serif;
+	font-family: "Manrope", sans-serif;
 }
 
 .song__title {
 	font-size: 24px;
-	font-family: 'Manrope', sans-serif;
+	font-family: "Manrope", sans-serif;
 }
 
 nav {
@@ -245,4 +244,11 @@ nav {
 			color: darken($orange-color, 5%);
 		}
 	}
+}
+
+.motion__container {
+	position: relative;
+	z-index: 50;
+	width: 100%;
+	background-color: white;
 }
