@@ -15,7 +15,6 @@ import useAudioPlayer from "../components/useAudioPlayer";
 
 // markup
 function KMITL({ location }: any) {
-  const isFirstMount = !location.action;
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer();
   const props = useSpring({
