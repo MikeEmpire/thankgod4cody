@@ -57,7 +57,7 @@ text {
 
 #second-text {
 	text {
-		animation-delay: .7s;
+		animation-delay: 0.7s;
 	}
 }
 #third-text {
@@ -68,6 +68,9 @@ text {
 
 @keyframes grow {
 	0% {
+		-ms-transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
+		-moz-transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
+		-o-transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
 		-webkit-transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
 		transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
 		letter-spacing: 0px;
@@ -78,7 +81,11 @@ text {
 	}
 	100% {
 		letter-spacing: 0.3px;
-		-webkit-transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
+		-ms-transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
+		-moz-transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
+		-o-transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
+		-webkit-transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
+		transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
 		transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
 		opacity: 0;
 	}
