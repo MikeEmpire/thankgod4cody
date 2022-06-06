@@ -57,7 +57,7 @@ text {
 
 #second-text {
 	text {
-		animation-delay: 0.7s;
+		animation-delay: 0.5s;
 	}
 }
 #third-text {
@@ -68,7 +68,7 @@ text {
 
 @keyframes grow {
 	0% {
-		transform: scale(0.1) translateY(-300px) translateX(350px) rotate(45deg);
+		transform: scale(0.1) translateY(-3.3em) translateX(350px) rotate(45deg);
 		letter-spacing: 0px;
 		opacity: 0;
 	}
@@ -77,7 +77,7 @@ text {
 	}
 	100% {
 		letter-spacing: 0.3px;
-		transform: scale(3.5) translateY(-300px) translateX(250px) rotate(80deg);
+		transform: scale(3.5) translateY(-3.3em) translateX(250px) rotate(80deg);
 		opacity: 0;
 	}
 }
