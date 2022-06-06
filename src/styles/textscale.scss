@@ -1,0 +1,83 @@
+.entrance__container {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
+svg {
+	width: 100%;
+}
+
+text {
+	font-size: 63px;
+	font-family: "Manrope";
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 21px;
+	fill: white;
+	animation-name: grow;
+	animation-duration: 2.2s;
+	opacity: 0;
+	animation-iteration-count: infinite;
+}
+
+.led {
+	width: 10px;
+	height: 10px;
+	background-color: whitesmoke;
+	border-radius: 50%;
+	box-shadow: 0px 0px 6px 2px white;
+	float: left;
+	margin-right: 10px;
+	animation-name: anim-glow;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	position: absolute;
+	left: 0;
+	bottom: 15em;
+	z-index: 0;
+}
+
+@keyframes anim-glow {
+	0% {
+		box: shadow 0px 0px 26px 26px white;
+		border-width: 1px;
+	}
+	50% {
+		box-shadow: 0 0 70px 48px white;
+		background-color: rgba(255, 255, 255, 0.7);
+		border-width: 2px;
+	}
+	100% {
+		box: shadow 0px 0px 26px 26px white;
+		border-width: 1px;
+	}
+}
+
+#second-text {
+	text {
+		animation-delay: 0.7s;
+	}
+}
+#third-text {
+	text {
+		animation-delay: 1.4s;
+	}
+}
+
+@keyframes grow {
+	0% {
+		transform: scale(0.1) translateY(-300px) translateX(350px) rotate(45deg);
+		letter-spacing: 0px;
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		letter-spacing: 0.3px;
+		transform: scale(3.5) translateY(-300px) translateX(250px) rotate(80deg);
+		opacity: 0;
+	}
+}

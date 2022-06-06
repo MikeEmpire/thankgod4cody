@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import "../styles/main.scss";
 import "../styles/bokeh.scss";
-import "../styles/introtransition.scss";
+import "../styles/textscale.scss";
 
 import Tracklist from "../components/Tracklist";
 import Transition from "../components/Transition";
@@ -26,40 +26,54 @@ function KMITL({ location }: any) {
 
   return (
     <Transition>
-      <div className="container">
-        <h1 className="title">
-          <span>Keep Me In</span>
-          <span>The Light</span>
-        </h1>
-      </div>
-      <animated.div style={props}> 
-        <div style={{ height: "100vh" }} className="background">
+      <article className="entrance__container">
+        {" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 500 500"
+        >
+          <defs>
+            <path
+              d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
+              id="textcircle"
+            ></path>
+          </defs>
+          <text dy="70" textLength="1220">
+            <textPath xlinkHref="#textcircle">Keep Me In The Light</textPath>
+          </text>
+        </svg>
+      </article>
+      <article className="entrance__container">
+        <svg
+          id="second-text"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 500 500"
+        >
+          <defs>
+            <path
+              d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
+              id="textcircle"
+            ></path>
+          </defs>
+          <text dy="70" textLength="1220">
+            <textPath xlinkHref="#textcircle">Keep Me In The Light</textPath>
+          </text>
+        </svg>
+      </article>
+      <animated.div style={props}>
+        <div style={{ height: "100vh", width: "100vw" }}>
           {playing && (
             <>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
-              <span className="bokeh"></span>
+              <span className="led"></span>
             </>
           )}
           <Tracklist trackProgress={curTime} />
-          <main className="player">
+          <main
+            className="player"
+            style={{ backgroundColor: !playing ? "transparent" : "#070707", transition: ".2s all" }}
+          >
             <audio id="audio" autoPlay>
               <source
                 src={`https://docs.google.com/uc?export==download&id=1HG3KJMdtRf_kap4wndIdYO7jOzfPw02f`}
@@ -67,7 +81,10 @@ function KMITL({ location }: any) {
               />
               Your browser does not support the <code>audio</code> element.
             </audio>
-            <div className="controls">
+            <div
+              className="controls"
+              style={{ marginTop: !playing ? "50%" : "auto" }}
+            >
               {playing ? (
                 <Pause handleClick={() => setPlaying(false)} />
               ) : (
