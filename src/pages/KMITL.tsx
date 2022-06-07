@@ -24,14 +24,22 @@ function KMITL({ location }: any) {
     delay: 3000,
   });
 
+  const introVariants = {
+    mount: { scale: 0.1, opacity: 1 },
+    rest: { scale: 1, opacity: 0, transition: { duration: 2 } },
+  };
+
   return (
     <Transition>
       <article className="entrance__container">
-        {" "}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
+        <motion.svg
+          xmlns="http://www.w3.org/2000/motion.svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
           viewBox="0 0 500 500"
+          variants={introVariants}
+          style={{ width: "100%" }}
+          initial="mount"
+          animate="rest"
         >
           <defs>
             <path
@@ -42,37 +50,18 @@ function KMITL({ location }: any) {
           <text dy="70" textLength="1220">
             <textPath xlinkHref="#textcircle">Keep Me In The Light</textPath>
           </text>
-        </svg>
-      </article>
-      <article className="entrance__container">
-        <svg
-          id="second-text"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 500 500"
-        >
-          <defs>
-            <path
-              d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250"
-              id="textcircle"
-            ></path>
-          </defs>
-          <text dy="70" textLength="1220">
-            <textPath xlinkHref="#textcircle">Keep Me In The Light</textPath>
-          </text>
-        </svg>
+        </motion.svg>
       </article>
       <animated.div style={props}>
         <div style={{ height: "100vh", width: "100vw" }}>
-          {playing && (
-            <>
-              <span className="led"></span>
-            </>
-          )}
+          {playing && <span className="led"></span>}
           <Tracklist trackProgress={curTime} />
           <main
             className="player"
-            style={{ backgroundColor: !playing ? "transparent" : "#070707", transition: ".2s all" }}
+            style={{
+              backgroundColor: !playing ? "transparent" : "#070707",
+              transition: ".2s all",
+            }}
           >
             <audio id="audio" autoPlay>
               <source
