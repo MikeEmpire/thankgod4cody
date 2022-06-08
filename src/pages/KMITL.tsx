@@ -23,15 +23,50 @@ function KMITL({ location }: any) {
     config: { frequency: 10, mass: 40, friction: 200 },
     delay: 3000,
   });
+  const containerVariants = {
+    mount: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        duration: 3,
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 3,
+        when: "afterChildren",
+        staggerChildren: 0.015,
+      },
+    },
+  };
 
   const introVariants = {
-    mount: { scale: 0.1, opacity: 1 },
-    rest: { scale: 1, opacity: 0, transition: { duration: 2 } },
+    mount: {
+      scale: 0.01,
+      transition: {
+        duration: 2,
+        staggerChildren: 1.5,
+      },
+      y: 270,
+      x: 300,
+      opacity: 1,
+    },
+    rest: {
+      y: -180,
+      x: 30,
+      scale: [0.01, 1.5],
+      opacity: [1, 0],
+      transition: { duration: 3, },
+    },
   };
 
   return (
     <Transition>
-      <article className="entrance__container">
+      <motion.article
+        style={{ position: "absolute", width: "100%", overflow: "hidden" }}
+      >
         <motion.svg
           xmlns="http://www.w3.org/2000/motion.svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -51,9 +86,9 @@ function KMITL({ location }: any) {
             <textPath xlinkHref="#textcircle">Keep Me In The Light</textPath>
           </text>
         </motion.svg>
-      </article>
+      </motion.article>
       <animated.div style={props}>
-        <div style={{ height: "100vh", width: "100vw" }}>
+        <div>
           {playing && <span className="led"></span>}
           <Tracklist trackProgress={curTime} />
           <main
