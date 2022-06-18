@@ -18,19 +18,19 @@ function KMITL() {
 
   const container = {
     hidden: {
-      backgroundColor: "white",
+      top: 0,
+      opacity: 1,
       transition: {
-        when: "beforeChildren",
         ease: [0.77, 0, 0.175, 1],
-        duration: 5,
+        duration: 1.5,
       },
     },
     show: {
-      backgroundColor: "black",
+      top: -1000,
+      opacity: 0,
       transition: {
-        when: "beforeChildren",
         ease: [0.77, 0, 0.175, 1],
-        duration: 5,
+        duration: 1.5,
       },
     },
   };
@@ -52,6 +52,7 @@ function KMITL() {
       transition: {
         ease: [0.77, 0, 0.175, 1],
         duration: 0.5,
+        delay: 1,
       },
     },
     show: {
@@ -59,12 +60,24 @@ function KMITL() {
       transition: {
         ease: [0.77, 0, 0.175, 1],
         duration: 0.5,
+        delay: 1,
       },
     },
   };
 
   return (
-    <motion.div variants={container} initial="hidden" animate="show">
+    <div style={{ overflow: "hidden" }}>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "white",
+          position: "absolute",
+        }}
+      />
       <motion.h1
         style={{ color: "white" }}
         variants={textVariants}
@@ -107,7 +120,7 @@ function KMITL() {
           </div>
         </main>
       </motion.section>
-    </motion.div>
+    </div>
   );
 }
 
