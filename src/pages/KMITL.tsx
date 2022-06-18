@@ -5,6 +5,8 @@ import "../styles/main.scss";
 import "../styles/bokeh.scss";
 import "../styles/textscale.scss";
 
+import album from "../assets/KMITL-Stream.mp3";
+
 import Tracklist from "../components/Tracklist";
 import Play from "../components/Play";
 import Bar from "../components/Bar";
@@ -77,7 +79,11 @@ function KMITL() {
         }}
       />
       <motion.h1
-        style={{ color: "white", fontFamily: "Manrope", textAlign: "center" }}
+        style={{
+          color: "white",
+          fontFamily: "Kraut Type Fuck",
+          textAlign: "center",
+        }}
         variants={textVariants}
         initial="hidden"
         animate="show"
@@ -100,10 +106,7 @@ function KMITL() {
           }}
         >
           <audio id="audio" autoPlay>
-            <source
-              src={`https://docs.google.com/uc?export==download&id=1HG3KJMdtRf_kap4wndIdYO7jOzfPw02f`}
-              type="audio/wav"
-            />
+            <source src={album} type="audio/wav" />
             Your browser does not support the <code>audio</code> element.
           </audio>
           <div className="controls" style={{ marginTop: "auto" }}>
