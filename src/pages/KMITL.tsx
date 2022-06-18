@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import AudioPlayer from "react-h5-audio-player";
 
 import "../styles/main.scss";
 import "../styles/bokeh.scss";
@@ -15,9 +16,6 @@ import useAudioPlayer from "../components/useAudioPlayer";
 
 // markup
 function KMITL() {
-  const { curTime, duration, playing, setPlaying, setClickedTime } =
-    useAudioPlayer();
-
   const container = {
     hidden: {
       opacity: 1,
@@ -93,34 +91,19 @@ function KMITL() {
       <section
         style={{ height: "60vh", display: "flex", flexDirection: "column" }}
       >
-        {playing && <span className="led"></span>}
-        <Tracklist trackProgress={curTime} />
+        {/* {playing && <span className="led"></span>} */}
+        {/* <Tracklist trackProgress={curTime} /> */}
         <motion.main
           className="player"
           variants={playerVariants}
           initial="hidden"
           animate="show"
           style={{
-            backgroundColor: !playing ? "transparent" : "#070707",
+            backgroundColor: "transparent",
             transition: ".2s all",
           }}
         >
-          <audio id="audio">
-            <source src={album} type="audio/wav" />
-            Your browser does not support the <code>audio</code> element.
-          </audio>
-          <div className="controls" style={{ marginTop: "auto" }}>
-            {playing ? (
-              <Pause handleClick={() => setPlaying(false)} />
-            ) : (
-              <Play handleClick={() => setPlaying(true)} />
-            )}
-            <Bar
-              curTime={curTime}
-              duration={duration}
-              onTimeUpdate={(time: number) => setClickedTime(time)}
-            />
-          </div>
+          <AudioPlayer src={album} onPlay={(e) => console.log(e)} />
         </motion.main>
       </section>
     </div>
