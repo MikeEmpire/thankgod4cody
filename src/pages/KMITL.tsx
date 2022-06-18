@@ -105,7 +105,7 @@ function KMITL() {
             transition: ".2s all",
           }}
         >
-          <audio id="audio" autoPlay>
+          <audio id="audio">
             <source src={album} type="audio/wav" />
             Your browser does not support the <code>audio</code> element.
           </audio>
