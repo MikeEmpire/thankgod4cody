@@ -84,16 +84,16 @@ function KMITL() {
       >
         <span>Keep Me In The Light</span>
       </motion.h1>
-      <motion.section
+      <section
         style={{ height: "60vh", display: "flex", flexDirection: "column" }}
-        variants={playerVariants}
-        initial="hidden"
-        animate="show"
       >
         {playing && <span className="led"></span>}
         <Tracklist trackProgress={curTime} />
-        <main
+        <motion.main
           className="player"
+          variants={playerVariants}
+          initial="hidden"
+          animate="show"
           style={{
             backgroundColor: !playing ? "transparent" : "#070707",
             transition: ".2s all",
@@ -106,10 +106,7 @@ function KMITL() {
             />
             Your browser does not support the <code>audio</code> element.
           </audio>
-          <div
-            className="controls"
-            style={{ marginTop: !playing ? "50%" : "auto" }}
-          >
+          <div className="controls" style={{ marginTop: "auto" }}>
             {playing ? (
               <Pause handleClick={() => setPlaying(false)} />
             ) : (
@@ -121,8 +118,8 @@ function KMITL() {
               onTimeUpdate={(time: number) => setClickedTime(time)}
             />
           </div>
-        </main>
-      </motion.section>
+        </motion.main>
+      </section>
     </div>
   );
 }
