@@ -18,7 +18,6 @@ function KMITL() {
 
   const container = {
     hidden: {
-      top: 0,
       opacity: 1,
       transition: {
         ease: [0.77, 0, 0.175, 1],
@@ -26,7 +25,6 @@ function KMITL() {
       },
     },
     show: {
-      top: -1000,
       opacity: 0,
       transition: {
         ease: [0.77, 0, 0.175, 1],
@@ -79,14 +77,19 @@ function KMITL() {
         }}
       />
       <motion.h1
-        style={{ color: "white" }}
+        style={{ color: "white", fontFamily: "Manrope", textAlign: "center" }}
         variants={textVariants}
         initial="hidden"
         animate="show"
       >
         <span>Keep Me In The Light</span>
       </motion.h1>
-      <motion.section variants={playerVariants} initial="hidden" animate="show">
+      <motion.section
+        style={{ height: "60vh", display: "flex", flexDirection: "column" }}
+        variants={playerVariants}
+        initial="hidden"
+        animate="show"
+      >
         {playing && <span className="led"></span>}
         <Tracklist trackProgress={curTime} />
         <main

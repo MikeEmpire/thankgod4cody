@@ -7,7 +7,7 @@ function useAudioPlayer() {
   const [clickedTime, setClickedTime] = useState<number>();
 
   useEffect(() => {
-    const audio = document.getElementById("audio") as HTMLAudioElement
+    const audio = document.getElementById("audio") as HTMLAudioElement;
 
     // state setters wrappers
     const setAudioData = () => {
@@ -23,7 +23,7 @@ function useAudioPlayer() {
     audio.addEventListener("timeupdate", setAudioTime);
 
     // React state listeners: update DOM on React state changes
-    playing ? audio.play() : audio.pause();
+    playing && audio && audio.currentSrc ? audio.play() : audio.pause();
 
     if (clickedTime && clickedTime !== curTime) {
       audio.currentTime = clickedTime;
