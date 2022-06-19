@@ -109,6 +109,7 @@ function KMITL() {
                 setCurrTime(target.currentTime);
               }
             }}
+            showSkipControls={false}
             onPlay={() => togglePlaying(true)}
             onPause={() => togglePlaying(false)}
           />
