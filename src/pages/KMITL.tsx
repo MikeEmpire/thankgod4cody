@@ -7,15 +7,12 @@ import "../styles/bokeh.scss";
 import "../styles/textscale.scss";
 
 import album from "../assets/KMITL-Stream.mp3";
-
 import Tracklist from "../components/Tracklist";
-import Play from "../components/Play";
-import Bar from "../components/Bar";
-import Pause from "../components/Pause";
-import useAudioPlayer from "../components/useAudioPlayer";
 
 // markup
 function KMITL() {
+  const [currTime, setCurrTime] = useState<number>(0);
+  const [isPlaying, togglePlaying] = useState<boolean>(false);
   const container = {
     hidden: {
       opacity: 1,
@@ -91,8 +88,8 @@ function KMITL() {
       <section
         style={{ height: "60vh", display: "flex", flexDirection: "column" }}
       >
-        {/* {playing && <span className="led"></span>} */}
-        {/* <Tracklist trackProgress={curTime} /> */}
+        {isPlaying && <span className="led"></span>}
+        <Tracklist trackProgress={currTime} />
         <motion.main
           className="player"
           variants={playerVariants}
@@ -103,7 +100,18 @@ function KMITL() {
             transition: ".2s all",
           }}
         >
-          <AudioPlayer src={album} onPlay={(e) => console.log(e)} />
+          <AudioPlayer
+            src={album}
+            showDownloadProgress={false}
+            onListen={(l) => {
+              if (l.target) {
+                const target = l.target as HTMLAudioElement;
+                setCurrTime(target.currentTime);
+              }
+            }}
+            onPlay={() => togglePlaying(true)}
+            onPause={() => togglePlaying(false)}
+          />
         </motion.main>
       </section>
     </div>
