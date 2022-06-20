@@ -213,6 +213,8 @@ main.player {
 }
 
 article.song {
+	font-family: $main-font;
+	color: #f88e5c;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -222,12 +224,13 @@ article.song {
 
 header.song__artist {
 	font-size: 28px;
-	font-family: "Manrope", sans-serif;
+	font-family: $main-font;
+	color: #f88e5c;
 }
 
 .song__title {
 	font-size: 24px;
-	font-family: "Manrope", sans-serif;
+	font-family: $main-font;
 }
 
 nav {
