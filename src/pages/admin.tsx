@@ -17,7 +17,7 @@ function Admin() {
     toggleAuth(isEmailValid);
   };
   const authForm = (
-    <form id="sign-in__form" onSubmit={handleSubmit}>
+    <form className="sign-in__form" onSubmit={handleSubmit}>
       <p>
         <label>Email</label>
         <input type="text" onChange={handleEmailInput} value={emailInput} />

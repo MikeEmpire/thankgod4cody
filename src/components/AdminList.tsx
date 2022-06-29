@@ -2,23 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ALBUM_API_URL } from "../constants";
 import AlbumListener, { Listener } from "../components/AlbumListener";
+import fetchUsers from "../modules/fetchUsers";
 
 function AdminList() {
   const [users, setUsers] = useState<Array<any>>([]);
   const [userToAdd, editUsersToAdd] = useState<string>("");
-  const fetchData = async () => {
-    const data = await fetch(ALBUM_API_URL);
-    const json = await data.json();
-    setUsers(json.albumListeners);
-  };
   useEffect(() => {
-    fetchData().catch(console.error);
+    fetchUsers(setUsers).catch(console.error);
   }, []);
   const addUser = async () => {
     const data = { email: userToAdd, authorized_at: new Date().toISOString() };
     const res = await axios.post(ALBUM_API_URL, data);
     if (res.status === 200) {
-      fetchData();
+      fetchUsers(setUsers);
     }
 
     console.log(res);
@@ -36,7 +32,7 @@ function AdminList() {
     const editUserUrl = `${ALBUM_API_URL}/${u._id}`;
     const res = await axios.put(editUserUrl, newUser);
     if (res.status === 200) {
-      return fetchData();
+      return fetchUsers(setUsers);
     }
     console.log(res);
   };
