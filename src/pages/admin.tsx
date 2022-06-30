@@ -15,7 +15,7 @@ function Admin() {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const isEmailValid = ADMIN_LIST.includes(emailInput);
+    const isEmailValid = ADMIN_LIST.includes(emailInput.toLowerCase());
     toggleAuth(isEmailValid);
   };
   const authForm = (

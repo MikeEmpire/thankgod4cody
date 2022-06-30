@@ -18,9 +18,11 @@ function IndexPage() {
     const { value } = e.target;
     return setEmailInput(value);
   };
-  const authorizeUser = (e: React.TouchEvent<HTMLButtonElement>) => {
+  const authorizeUser = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const user = users.find((u) => u.email === emailInput);
+    const user = users.find(
+      (u) => u.email.toLowerCase() === emailInput.toLowerCase()
+    );
     if (user?.authorized_at) {
       localStorage.setItem("listener", JSON.stringify(user.email));
       return navigate("/intro");
