@@ -34,9 +34,9 @@ function IndexPage() {
         <input type="text" onChange={handleEmailInput} value={emailInput} />
       </p>
       <p>
-        <button type="submit" onTouchStart={authorizeUser}>
+        <span className="submit__btn" onClick={authorizeUser}>
           Access Album
-        </button>
+        </span>
       </p>
     </section>
   );

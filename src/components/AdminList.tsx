@@ -63,9 +63,7 @@ function AdminList() {
       {userList}
       <section id="add-user__form">
         <input type="text" onChange={handleAddUserInput} />
-        <button type="submit" onTouchStart={addUser}>
-          Add User
-        </button>
+        <span onClick={addUser}>Add User</span>
       </section>
     </div>
   );
