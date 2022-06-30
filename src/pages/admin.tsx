@@ -13,7 +13,7 @@ function Admin() {
     const { value } = e.target;
     return setEmailInput(value);
   };
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const isEmailValid = ADMIN_LIST.includes(emailInput);
     toggleAuth(isEmailValid);
@@ -39,7 +39,9 @@ function Admin() {
         <input type="text" onChange={handleEmailInput} value={emailInput} />
       </p>
       <p>
-        <button type="submit">Sign In</button>
+        <button onClick={handleSubmit} type="submit">
+          Sign In
+        </button>
       </p>
     </section>
   );
