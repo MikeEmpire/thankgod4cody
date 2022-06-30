@@ -4,6 +4,8 @@ import { ALBUM_API_URL } from "../constants";
 import AlbumListener, { Listener } from "../components/AlbumListener";
 import fetchUsers from "../modules/fetchUsers";
 
+import "../styles/main.scss";
+
 function AdminList() {
   const [users, setUsers] = useState<Array<any>>([]);
   const [userToAdd, editUsersToAdd] = useState<string>("");
