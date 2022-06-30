@@ -18,7 +18,7 @@ function IndexPage() {
     const { value } = e.target;
     return setEmailInput(value);
   };
-  const authorizeUser = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const authorizeUser = (e: React.TouchEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const user = users.find((u) => u.email === emailInput);
     if (user?.authorized_at) {
@@ -34,7 +34,7 @@ function IndexPage() {
         <input type="text" onChange={handleEmailInput} value={emailInput} />
       </p>
       <p>
-        <button type="submit" onClick={authorizeUser}>
+        <button type="submit" onTouchStart={authorizeUser}>
           Access Album
         </button>
       </p>
