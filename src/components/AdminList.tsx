@@ -48,8 +48,18 @@ function AdminList() {
       />
     ));
   return (
-    <div className="admin__container">
-      <header>Admitted Users</header>
+    <div style={{ fontFamily: "Manrope" }}>
+      <header
+        style={{
+          color: "white",
+          display: "flex",
+          justifyContent: "center",
+          margin: 15,
+          fontWeight: 500,
+        }}
+      >
+        Admitted Users
+      </header>
       {userList}
       <form id="add-user__form" onSubmit={addUser}>
         <input type="text" onChange={handleAddUserInput} />

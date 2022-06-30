@@ -12,14 +12,31 @@ interface AlbumListenerProps {
   unauthorizeUser: Function;
 }
 
+const listenerDetail = {
+  fontFamily: "Manrope",
+  width: 180,
+  marginBottom: 15,
+};
+
 function AlbumListener({ listener, unauthorizeUser }: AlbumListenerProps) {
   const isAuthorized = listener.authorized_at;
   const authorizedText = isAuthorized ? "Authorized" : "Not Authorized";
   return (
-    <article className="album__listener">
-      <span>{listener.email}</span>
-      <span>{authorizedText}</span>
-      <span onClick={() => unauthorizeUser(listener)}>Change Status</span>
+    <article
+      style={{
+        fontFamily: "Manrope",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <span style={listenerDetail}>{listener.email}</span>
+      <span style={listenerDetail}>{authorizedText}</span>
+      <span
+        style={listenerDetail}
+        onClick={() => unauthorizeUser(listener)}
+      >
+        Change Status
+      </span>
     </article>
   );
 }

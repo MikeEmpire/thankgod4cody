@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import AdminList from "../components/AdminList";
 
 import "../styles/main.scss";
-import "../styles/admin.scss";
 
 import { ADMIN_LIST } from "../constants";
 
@@ -20,8 +19,23 @@ function Admin() {
     toggleAuth(isEmailValid);
   };
   const authForm = (
-    <form className="sign-in__form" onSubmit={handleSubmit}>
-      <p>
+    <form
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "white",
+      }}
+      onSubmit={handleSubmit}
+    >
+      <p
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
         <label>Email</label>
         <input type="text" onChange={handleEmailInput} value={emailInput} />
       </p>
