@@ -1,5 +1,6 @@
 import { navigate } from "gatsby";
 import * as React from "react";
+import { Listener } from "../components/AlbumListener";
 import fetchUsers from "../modules/fetchUsers";
 
 import "../styles/main.scss";
@@ -8,7 +9,7 @@ const { useEffect, useState } = React;
 
 // markup
 function IndexPage() {
-  const [users, setUsers] = useState<Array<any>>([]);
+  const [users, setUsers] = useState<Array<Listener>>([]);
   const [emailInput, setEmailInput] = useState<string>("");
   useEffect(() => {
     fetchUsers(setUsers).catch(console.error);
@@ -17,11 +18,14 @@ function IndexPage() {
     const { value } = e.target;
     return setEmailInput(value);
   };
-  const authorizeUser = () => {
-    const isAuth = users.findIndex((u) => u.email === emailInput) > -1;
-    if (isAuth) {
+  const authorizeUser = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const user = users.find((u) => u.email === emailInput);
+    if (user?.authorized_at) {
+      localStorage.setItem("listener", JSON.stringify(user.email));
       return navigate("/intro");
     }
+    return null;
   };
   return (
     <form className="sign-in__form" onSubmit={authorizeUser}>

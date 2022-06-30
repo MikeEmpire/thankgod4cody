@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useSpring, animated } from "react-spring";
 import useSound from "use-sound";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import Transition from "../components/Transition";
 
 import "../styles/main.scss";
@@ -11,6 +11,10 @@ const { useEffect } = React;
 
 // markup
 function IndexPage() {
+  const authUser = localStorage.getItem("listener");
+  if (!authUser) {
+    return navigate("/");
+  }
   const [play] = useSound(intro, { interrupt: true });
   useEffect(() => {
     play();

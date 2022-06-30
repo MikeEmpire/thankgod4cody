@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
+import { navigate } from "gatsby";
 import { motion } from "framer-motion";
 import AudioPlayer from "react-h5-audio-player";
 
@@ -11,6 +12,10 @@ import Tracklist from "../components/Tracklist";
 
 // markup
 function KMITL() {
+  const authUser = localStorage.getItem("listener");
+  if (!authUser) {
+    return navigate("/");
+  }
   const [currTime, setCurrTime] = useState<number>(0);
   const [isPlaying, togglePlaying] = useState<boolean>(false);
   const container = {

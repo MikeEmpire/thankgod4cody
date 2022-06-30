@@ -10,13 +10,13 @@ function AdminList() {
   useEffect(() => {
     fetchUsers(setUsers).catch(console.error);
   }, []);
-  const addUser = async () => {
+  const addUser = async (e: any) => {
+    e.preventDefault();
     const data = { email: userToAdd, authorized_at: new Date().toISOString() };
     const res = await axios.post(ALBUM_API_URL, data);
     if (res.status === 200) {
       fetchUsers(setUsers);
     }
-
     console.log(res);
   };
   const handleAddUserInput = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -49,9 +49,11 @@ function AdminList() {
     <div className="admin__container">
       <header>Admitted Users</header>
       {userList}
-      <form id="add-user__form">
+      <form id="add-user__form" onSubmit={addUser}>
         <input type="text" onChange={handleAddUserInput} />
-        <button onClick={addUser}>Add User</button>
+        <button type="submit" onClick={addUser}>
+          Add User
+        </button>
       </form>
     </div>
   );
