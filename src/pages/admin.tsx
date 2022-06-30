@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import AdminList from "../components/AdminList";
 
 import "../styles/main.scss";
+import "../styles/admin.scss";
 
 import { ADMIN_LIST } from "../constants";
 
