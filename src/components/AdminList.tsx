@@ -48,7 +48,7 @@ function AdminList() {
       />
     ));
   return (
-    <div style={{ fontFamily: "Manrope" }}>
+    <div style={{ fontFamily: "Manrope", color: "white" }}>
       <header
         style={{
           color: "white",
@@ -61,12 +61,12 @@ function AdminList() {
         Admitted Users
       </header>
       {userList}
-      <form id="add-user__form" onSubmit={addUser}>
+      <section id="add-user__form" onSubmit={addUser}>
         <input type="text" onChange={handleAddUserInput} />
         <button type="submit" onClick={addUser}>
           Add User
         </button>
-      </form>
+      </section>
     </div>
   );
 }

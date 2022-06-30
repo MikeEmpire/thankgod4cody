@@ -19,7 +19,7 @@ function Admin() {
     toggleAuth(isEmailValid);
   };
   const authForm = (
-    <form
+    <section
       style={{
         display: "flex",
         flexDirection: "column",
@@ -27,7 +27,6 @@ function Admin() {
         justifyContent: "center",
         color: "white",
       }}
-      onSubmit={handleSubmit}
     >
       <p
         style={{
@@ -42,7 +41,7 @@ function Admin() {
       <p>
         <button type="submit">Sign In</button>
       </p>
-    </form>
+    </section>
   );
   const content = !isAuthorized ? authForm : <AdminList />;
   return <section>{content}</section>;

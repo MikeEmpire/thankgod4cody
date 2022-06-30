@@ -28,7 +28,7 @@ function IndexPage() {
     return null;
   };
   return (
-    <form className="sign-in__form" onSubmit={authorizeUser}>
+    <section className="sign-in__form">
       <p>
         <label>Email</label>
         <input type="text" onChange={handleEmailInput} value={emailInput} />
@@ -36,7 +36,7 @@ function IndexPage() {
       <p>
         <button type="submit">Access Album</button>
       </p>
-    </form>
+    </section>
   );
 }
 
