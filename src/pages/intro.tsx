@@ -11,9 +11,11 @@ const { useEffect } = React;
 
 // markup
 function IndexPage() {
-  const authUser = localStorage.getItem("listener");
-  if (!authUser) {
-    return navigate("/");
+  if (typeof window !== "undefined") {
+    const authUser = localStorage.getItem("listener");
+    if (!authUser) {
+      return navigate("/");
+    }
   }
   const [play] = useSound(intro, { interrupt: true });
   useEffect(() => {

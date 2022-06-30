@@ -12,9 +12,11 @@ import Tracklist from "../components/Tracklist";
 
 // markup
 function KMITL() {
-  const authUser = localStorage.getItem("listener");
-  if (!authUser) {
-    return navigate("/");
+  if (typeof window !== "undefined") {
+    const authUser = localStorage.getItem("listener");
+    if (!authUser) {
+      return navigate("/");
+    }
   }
   const [currTime, setCurrTime] = useState<number>(0);
   const [isPlaying, togglePlaying] = useState<boolean>(false);
