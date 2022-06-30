@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import AudioPlayer from "react-h5-audio-player";
 
 import "../styles/main.scss";
-import "../styles/bokeh.scss";
 import "../styles/textscale.scss";
 
 import album from "../assets/KMITL-Stream.mp3";
