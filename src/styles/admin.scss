@@ -1,39 +1,40 @@
 .sign-in__form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	p {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100vh;
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 #add-user__form {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .album__listener {
-	display: flex;
-	justify-content: center;
-	color: white;
-	span {
-		font-family: "Manrope";
-		width: 180px;
-		margin-bottom: 15px;
-	}
+  display: flex;
+  justify-content: center;
+  color: white;
+  span {
+    font-family: "Manrope";
+    width: 180px;
+    margin-bottom: 15px;
+  }
 }
 
 .admin__container {
-	font-family: "Manrope";
-	header {
-		color: white;
-		display: flex;
-		justify-content: center;
-		margin: 15px;
-		font-weight: 500;
-	}
+  font-family: "Manrope";
+  header {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    font-weight: 500;
+  }
 }
